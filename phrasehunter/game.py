@@ -45,7 +45,7 @@ class Game:
                     else:
                         self.missed += 1
                         if self.missed != 5:
-                            print(f'You have {self.missed} out of 5 lives remaining')
+                            print(f'You have {5 - self.missed} out of 5 lives remaining')
             except ValueError as e:
                 print("Invalid Input:", e)
 
