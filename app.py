@@ -10,9 +10,11 @@ if __name__ == '__main__':
     game = Game()
     game.start()
     # Taking user input to decide if game has to be continued or declared as over
-    input("Press enter to continue...")
-    play_again = input("Do you want to continue? Y/N")
-    if play_again.lower() == 'y':
-        game.start()
-    else:
-        game.game_over()
+    while True:
+        input("Press enter to continue...")
+        play_again = input("Do you want to continue? Y/N")
+        if play_again.lower() == 'y':
+            game.start()
+        else:
+            game.game_over()
+            break

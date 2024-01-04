@@ -26,6 +26,7 @@ class Game:
     def start(self):
         self.welcome()
         self.active_phrase = self.random_phrase()
+        self.guesses = []
         ph = Phrase(self.active_phrase)
         while (not ph.check_complete(self.guesses)) or self.missed > 6:
             ph.display(self.guesses)
@@ -40,12 +41,12 @@ class Game:
                     continue
                 else:
                     self.guesses.append(guess)
-                    if ph.check_letter(guess):
-                        ph.display(self.guesses)
-                    else:
+                    if not ph.check_letter(guess):
                         self.missed += 1
                         if self.missed != 5:
                             print(f'You have {5 - self.missed} out of 5 lives remaining')
+                        else:
+                            break
             except ValueError as e:
                 print("Invalid Input:", e)
 
